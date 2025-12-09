@@ -5,7 +5,7 @@ local lastPosition = nil
 local hrp = nil
 local function setupCharacter(char)
 	hrp = char:WaitForChild("HumanoidRootPart")
-	lastPosition = Vector3.new(hrp.Position.X, 0, hrp.Position.Z) -- ignorujemy Y
+	lastPosition = Vector3.new(hrp.Position.X, 0, hrp.Position.Z)
 end
 if player.Character then
 	setupCharacter(player.Character)
@@ -15,7 +15,7 @@ player.CharacterAdded:Connect(function(char)
 end)
 game:GetService("RunService").RenderStepped:Connect(function()
 	if hrp and lastPosition then
-		local currentPosition = Vector3.new(hrp.Position.X, 0, hrp.Position.Z) -- ignorujemy Y
+		local currentPosition = Vector3.new(hrp.Position.X, 0, hrp.Position.Z)
 		local distance = (currentPosition - lastPosition).Magnitude
 		distanceTravelled = distanceTravelled + distance
 		lastPosition = currentPosition
